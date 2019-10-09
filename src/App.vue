@@ -25,14 +25,14 @@ export default {
     };
   },
   mounted() {
-    axios.get("http://localhost:8080/ingredients").then(response => {
+    axios.get(process.env.VUE_APP_PIZZA_API + "/ingredients").then(response => {
       this.info = response.data;
       window.console.log(response);
     });
   },
   methods: {
     generateMenu: function() {
-      axios.post("http://localhost:8080/menu", this.info)
+      axios.post(process.env.VUE_APP_PIZZA_API+ "/menu", this.info)
       
       .then(response => {
       this.menu = response.data;
