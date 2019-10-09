@@ -1,0 +1,7 @@
+<div class="ingredients">
+    <h1>Available ingredients</h1>
+    <ul>
+        <li v-for="ingredient in msg">{{ ingredient.name }}</li>
+    </ul>
+    <button v-on:click="generateMenu">Generate Menu</button>
+</div>
