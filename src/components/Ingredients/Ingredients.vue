@@ -6,14 +6,34 @@
 </style>
 
 <script>
+import { ALL_INGREDIENTS_QUERY } from '../../constants/graphql.js';
+import EventBus from '../../events/eventBus'
+
 export default {
+
   name: 'Ingredients',
-  props: {
-    msg: Array
+  data() {
+    return {
+       data: {
+        ingredients: [],
+        selectedList: []
+       }
+    }
   },
   methods: {
-    generateMenu: function() {
-      this.$emit('generateMenu')
+    selectedIngredient: function(ingredient) {
+      if(this.data.selectedList.includes(ingredient)) {
+        this.data.selectedList.splice(this.data.selectedList.indexOf(ingredient), 1)
+       
+      } else {
+        this.data.selectedList.push(ingredient)
+      }
+      EventBus.$emit('generateMenu', this.data.selectedList)
+    }
+  },
+  apollo: {
+    ingredients: {
+      query: ALL_INGREDIENTS_QUERY
     }
   }
 };

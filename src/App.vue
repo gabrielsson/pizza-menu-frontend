@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
-    <Ingredients :msg="info" v-on:generateMenu="generateMenu"></Ingredients>
+    <Ingredients :msg="info"></Ingredients>
     <Menu :menu="menu"></Menu>
   </div>
 </template>
@@ -9,8 +9,6 @@
 <script>
 import Ingredients from "./components/Ingredients";
 import Menu from "./components/Menu";
-
-import axios from 'axios';
 
 export default {
   name: "app",
@@ -25,20 +23,10 @@ export default {
     };
   },
   mounted() {
-    axios.get(process.env.VUE_APP_PIZZA_API + "/ingredients").then(response => {
-      this.info = response.data;
-      window.console.log(response);
-    });
+    
   },
   methods: {
-    generateMenu: function() {
-      axios.post(process.env.VUE_APP_PIZZA_API+ "/menu", this.info)
-      
-      .then(response => {
-      this.menu = response.data;
-      window.console.log(response);
-    })
-    }
+   
   },
 };
 </script>
