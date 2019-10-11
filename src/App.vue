@@ -1,6 +1,7 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
+  <div id="app" >
+    
+
     <Ingredients :msg="info"></Ingredients>
     <Menu :menu="menu"></Menu>
   </div>
@@ -37,8 +38,17 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: wheat;
   margin-top: 60px;
+  background-color: black;
+  opacity: 0.7;  
+  
+
+}
+
+html {
+  background: url('~@/assets/img.jpg') no-repeat center center fixed ; 
+  background-size: cover;
 }
 </style>
  
