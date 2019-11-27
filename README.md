@@ -1,5 +1,11 @@
 # pizza-menu-frontend
 
+## tl;dr;
+```
+ git clone https://github.com/gabrielsson/pizza-menu-frontend.git
+ cd pizza-menu-frontend
+ npm install && npm run serve
+```
 ## Project setup
 ```
 npm install
