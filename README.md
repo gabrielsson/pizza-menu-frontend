@@ -4,7 +4,7 @@
 ```
  git clone https://github.com/gabrielsson/pizza-menu-frontend.git
  cd pizza-menu-frontend
- npm install && npm run serve
+ VUE_APP_PIZZA_API=http://<remote_server>:<remote_port>/graphql npm install && npm run serve
 ```
 ## Project setup
 ```
