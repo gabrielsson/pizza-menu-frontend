@@ -21,3 +21,9 @@ li.active {
 a {
     color: #42b983;
 }
+
+.ingredients {
+    padding-left: 30%;
+    padding-right: 30%;
+
+}
