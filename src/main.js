@@ -10,7 +10,7 @@ import 'tachyons'
 Vue.config.productionTip = false
 const httpLink = new HttpLink({
   // You should use an absolute URL here
-  uri: 'http://localhost:8081/graphql'
+  uri: 'http://35.241.10.102/graphql'
 })
 
 // 4

@@ -1,6 +1,6 @@
 <template>
   <div id="app" >
-    
+
 
     <Ingredients :msg="info"></Ingredients>
     <Menu :menu="menu"></Menu>
@@ -47,7 +47,6 @@ export default {
 }
 
 html {
-  background: url('~@/assets/img.jpg') no-repeat center center fixed ; 
   background-size: cover;
 }
 </style>
