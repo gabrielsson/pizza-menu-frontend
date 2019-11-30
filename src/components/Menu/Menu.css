@@ -16,8 +16,13 @@ a {
     color: #42b983;
 }
 
-h1 {
+.title {
     width: 100%;
+
+}
+
+.title p {
+    font-style: italic;
 }
 
 .menu {

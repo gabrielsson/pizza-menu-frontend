@@ -1,10 +1,11 @@
 <div class="menu">
-    <h1>Pizza menu</h1>
+    <div class="title">
+        <h1>Pizza menu</h1>
+        <p>All pizzas include tomato sauce and cheese</p>
+    </div>
     <div v-for="pizza, index in menu" class="pizza">
         <h3>{{index +1}}. {{ pizza.name }}</h3>
         <ul>
-            <li>Tomat</li>
-            <li>Ost</li>
             <li v-for="ingredient in pizza.ingredients">{{ingredient.name}}</li>
         </ul>
     </div>

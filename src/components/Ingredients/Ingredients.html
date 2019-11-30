@@ -1,5 +1,5 @@
 <div class="ingredients">
-    <h1>Available ingredients</h1>
+    <h1>Choose ingredients</h1>
     <ul >
         <li v-on:click="selectedIngredient(ingredient.name)" v-for="ingredient in ingredients" :class="[(isActive(ingredient.name) ? 'active' : '')]">{{ ingredient.name }}</li>
     </ul>
