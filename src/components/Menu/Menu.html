@@ -3,7 +3,7 @@
         <h1>Pizza menu</h1>
         <p>All pizzas include tomato sauce and cheese</p>
     </div>
-    <div v-for="pizza, index in menu" class="pizza">
+    <div v-for="pizza, index in data.menu" class="pizza">
         <h3>{{index +1}}. {{ pizza.name }}</h3>
         <ul>
             <li v-for="ingredient in pizza.ingredients">{{ingredient.name}}</li>

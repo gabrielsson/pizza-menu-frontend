@@ -6,57 +6,54 @@
 </style>
 
 <script>
-import EventBus from '../../events/eventBus'
-import gql from 'graphql-tag'
+    import EventBus from '../../events/eventBus'
+    import axios from 'axios';
 
-export default {
-  name: 'Menu',
-  data() {
-    return {
-      data: {
-        menu: [],
-        ingredients: []
-      }
-    }
-  },
-  methods: {
-    updateMenu (payload) {
-      this.data.ingredients = []
-      payload.forEach(element => {
-        this.data.ingredients.push({"name":element})
-      });
-    }
-  },
-  mounted () {
-    EventBus.$on('generateMenu', (payload) => {
-               
-        this.updateMenu(payload)
-        
-      }
-    )
-  },
-  apollo: {
-    menu: {
-      query: gql`
-        query GetAllPizzas($ingredients: [IngredientInput]) {
-            pizzas(ingredients: $ingredients) {
-              name
-              ingredients {
-                name
-              }
+    export default {
+        name: 'Menu',
+        data() {
+            return {
+                data: {
+                    menu: [],
+                    ingredients: []
+                }
             }
-          }  
-        `,
-    
-        variables () {
-          return {"ingredients": this.data.ingredients}
-            
-            
         },
-        update(data) {
-          return data.pizzas;
-        }
-    }
-  }
-};
+        methods: {
+            generateMenu(payload) {
+                const ingredients = []
+
+                payload.forEach(element => {
+                    ingredients.push({"name": element})
+                });
+                axios.post(process.env.VUE_APP_PIZZA_API + "/pizzas",ingredients, {
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type':'application/json',
+                    }
+                })
+
+                    .then(response => {
+                        // eslint-disable-next-line no-console
+                        this.data.menu = response.data;
+
+                    })
+            },
+            updateMenu(payload) {
+                this.data.ingredients = []
+                payload.forEach(element => {
+                    this.data.ingredients.push({"name": element})
+                });
+            }
+        },
+        mounted() {
+            EventBus.$on('generateMenu', (payload) => {
+                    this.generateMenu(payload);
+
+
+                }
+            )
+        },
+
+    };
 </script> 
