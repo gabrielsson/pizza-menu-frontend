@@ -24,7 +24,7 @@
                 const ingredients = []
 
                 payload.forEach(element => {
-                    ingredients.push({"name": element})
+                    ingredients.push(element)
                 });
                 axios.post(process.env.VUE_APP_PIZZA_API + "/pizzas",ingredients, {
                     headers: {
